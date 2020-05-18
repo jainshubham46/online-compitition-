@@ -1,0 +1,120 @@
+Problem Statement
+You are given an integer N. Build an undirected graph with N vertices with indices 1 to N that satisfies the following two conditions:
+
+The graph is simple and connected.
+There exists an integer S such that, for every vertex, the sum of the indices of the vertices adjacent to that vertex is S.
+It can be proved that at least one such graph exists under the constraints of this problem.
+
+Constraints
+
+All values in input are integers.
+3≤N≤100
+Input Format
+N
+Output Format
+In the first line, print the number of edges, M, in the graph you made. In the i-th of the following M lines, print two integers ai and bi, representing the endpoints of the i-th edge.
+
+The output will be judged correct if the graph satisfies the conditions.
+
+
+
+Sample Testcase #0
+Testcase Input
+3
+Testcase Output
+2
+1 3
+2 3
+Explanation
+For every vertex, the sum of the indices of the vertices adjacent to that vertex is 3.
+
+
+SOLUTION
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define rep(i, n) for(int i = 0; i < n; i++)
+#define all(a) a.begin(), a.end()
+#define mod 1000000007
+#define MOD 998244353
+#define INF 40000000000000000
+int dx8[8] = {-1, 0, 1, 1, 1, 0, -1, -1};
+int dy8[8] = {1, 1, 1, 0, -1, -1, -1, 0};
+int dx4[4] = {-1, 0, 1, 0};
+int dy4[4] = {0, -1, 0, 1};
+template <class T>
+inline bool chmax(T &a, T b) {
+    if(a < b) {
+        a = b;
+        return 1;
+    }
+    return 0;
+}
+template <class T>
+inline bool chmin(T &a, T b) {
+    if(a > b) {
+        a = b;
+        return 1;
+    }
+    return 0;
+}
+int solve(int x){
+    int r=0,l=1000000000;
+    while(l-r>1){
+        int mid=(r+l)/2;
+        if(mid*mid>x)l=mid;
+        else r=mid;
+    }
+    return r;
+}
+signed main() {
+    int N;cin>>N;
+    
+    int M=0;
+    vector<pair<int,int>>Ans;
+    if(N%2==0){
+        vector<vector<bool>>Graph(N+1,vector<bool>(N+1,false));
+        for(int i=1;i<=N;i++){
+            for(int j=1;j<=N;j++){
+                if(j==i||N+1-j==i)continue;
+                Graph[i][j]=true;
+                Graph[j][i]=true;
+                Graph[i][N+1-j]=true;
+                Graph[N+1-j][i]=true;
+            }
+        }
+        for(int i=1;i<=N;i++){
+            for(int j=i+1;j<=N;j++){
+                if(Graph[i][j]){
+                    M++;
+                    Ans.push_back(make_pair(i,j));
+                }
+            }
+        }
+    }else{
+        vector<vector<bool>>Graph(N+1,vector<bool>(N+1,false));
+        for(int i=1;i<=N-1;i++){
+            Graph[i][N]=true;
+            Graph[N][i]=true;
+            for(int j=1;j<=N-1;j++){
+                if(j==i||j==N-i)continue;
+                Graph[i][j]=true;
+                Graph[j][i]=true;
+                Graph[i][N-j]=true;
+                Graph[N-j][i]=true;
+            }
+        }
+        for(int i=1;i<N;i++){
+            for(int j=i+1;j<=N;j++){
+                if(Graph[i][j]){
+                    M++;
+                    Ans.push_back(make_pair(i,j));
+                }
+            }
+        }
+    }
+    cout<<M<<endl;
+    for(auto p:Ans){
+        cout<<p.first<<' '<<p.second<<endl;
+    }
+}
