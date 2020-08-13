@@ -1,42 +1,6 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "name": "Untitled8.ipynb",
-      "provenance": [],
-      "authorship_tag": "ABX9TyPtLwMYJXKzdB7v+QdLlq4z",
-      "include_colab_link": true
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/jainshubham46/online-compitition-/blob/master/Find%20the%20number%20of%20islands.cpp\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "metadata": {
-        "id": "HlEX2eYXwhOe",
-        "colab_type": "code",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 129
-        },
-        "outputId": "66757db0-ce53-441e-b02e-f2379331d159"
-      },
-      "source": [
-        "Given a Matrix consisting of 0s and 1s. Find the number of islands of connected 1s present in the matrix. \n",
+
+  
+       Question:- "Given a Matrix consisting of 0s and 1s. Find the number of islands of connected 1s present in the matrix. \n",
         "Note: A 1 is said to be connected if it has another 1 around it (either of the 8 directions).\n",
         "\n",
         "Input:\n",
@@ -84,28 +48,9 @@
         "Here, two islands will be formed\n",
         "First island will be formed by elements {A[0][0] ,  A[0][1], A[1][2], A[2][3]}\n",
         "Second island will be formed by {A[3][1]}."
-      ],
-      "execution_count": 1,
-      "outputs": [
-        {
-          "output_type": "error",
-          "ename": "SyntaxError",
-          "evalue": "ignored",
-          "traceback": [
-            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-1-478fabbe58af>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    Given a Matrix consisting of 0s and 1s. Find the number of islands of connected 1s present in the matrix.\u001b[0m\n\u001b[0m          ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "metadata": {
-        "id": "mIi5Zrlowrhl",
-        "colab_type": "code",
-        "colab": {}
-      },
-      "source": [
-        "#code\n",
+      
+   
+        "#code",
         "\n",
         "#include <bits/stdc++.h>\n",
         "using namespace std;\n",
@@ -179,9 +124,4 @@
         "    }\n",
         "    return count;\n",
         "}\n"
-      ],
-      "execution_count": null,
-      "outputs": []
-    }
-  ]
-}
+    
