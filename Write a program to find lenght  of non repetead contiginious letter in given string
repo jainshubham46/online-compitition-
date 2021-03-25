@@ -1,0 +1,21 @@
+/*Write a program to find lenght  of non repetead contigionus letter in given string.*/
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{int maxLen=0, start=-1;
+string c;
+vector<int>dict(256,-1) ;
+cin>>c;
+for(int i=0;i<c.size();i++)
+{
+    if(dict[c[i]]>start)
+       start=dict[c[i]];
+    dict[c[i]]=i;
+    maxLen=max(maxLen,i-start);
+}
+    cout<<maxLen;
+
+    return 0;
+}
