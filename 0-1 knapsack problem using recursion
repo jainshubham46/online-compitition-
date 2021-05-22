@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+#define vi vector<int>
+#define rep(i,a,b) for(int i=a;i<b;i++)
+const int N=1e3+2;
+int wt[N],val[N];
+int knapscak(int n, int w){
+	if(w<=0)
+	return 0;
+	if(n<=0)
+	return 0;
+	if(wt[n-1]>w)
+	return knapscak(n-1,w);
+	
+	return max(knapscak(n-1,w),knapscak(n-1,w-wt[n-1])+val[n-1]) ;
+}
+
+int main(){
+	int n,w;
+	cin>>n;
+	rep(i,0,n)
+	cin>>wt[i];
+	rep(i,0,n)
+	cin>>val[i];
+	cin>>w;
+	
+cout<<knapscak(n,w)<<endl;
+return 0;
+}
